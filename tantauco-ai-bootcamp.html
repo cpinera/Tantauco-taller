@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tantauco AI Bootcamp</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #fafaf8;
+    --accent: #1a3a2a;
+    --accent-light: #2d6b4a;
+    --accent-pale: #e8f0eb;
+    --accent-pale2: #f4f7f5;
+    --gray-100: #f2f1ee;
+    --gray-200: #e2e0db;
+    --gray-400: #9e9b95;
+    --gray-600: #5c5a56;
+    --gray-800: #2a2926;
+    --gold: #c4a35a;
+    --gold-light: #f5ead0;
+    --radius: 3px;
+    --radius-lg: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--accent);
+    color: var(--white);
+    padding: 56px 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 20%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .hero-meta {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.02em;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 48px 0 40px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .section-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--gray-800);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .section p {
+    color: var(--gray-600);
+    margin-bottom: 14px;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .section p strong {
+    color: var(--gray-800);
+    font-weight: 500;
+  }
+
+  /* INTRO CALLOUT */
+  .intro-callout {
+    background: var(--accent-pale2);
+    border-left: 3px solid var(--accent-light);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .intro-callout p {
+    color: var(--gray-800);
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* ACCOUNTS CHECKLIST */
+  .accounts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (max-width: 560px) { .accounts-grid { grid-template-columns: 1fr; } }
+
+  .account-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+  }
+  .account-card:hover { border-color: var(--accent-light); background: var(--accent-pale2); }
+  .account-card.checked { border-color: var(--accent-light); background: var(--accent-pale2); }
+
+  .account-checkbox {
+    width: 20px; height: 20px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    background: white;
+  }
+  .account-card.checked .account-checkbox {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .account-checkbox svg { display: none; }
+  .account-card.checked .account-checkbox svg { display: block; }
+
+  .account-info { flex: 1; }
+  .account-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-800);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .account-order {
+    font-size: 10px;
+    background: var(--gold-light);
+    color: var(--gold);
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  .account-desc {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 3px;
+  }
+  .account-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .account-link:hover { text-decoration: underline; }
+
+  .tip-box {
+    background: var(--gold-light);
+    border: 1px solid rgba(196,163,90,0.3);
+    border-radius: var(--radius-lg);
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #7a5c1a;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    margin: 16px 0 8px;
+  }
+  .progress-label {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .progress-bar {
+    height: 5px;
+    background: var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent-light);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+
+  /* PROMPTS */
+  .prompts-list { margin-top: 24px; display: flex; flex-direction: column; gap: 20px; }
+
+  .prompt-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .prompt-step {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .prompt-body { flex: 1; }
+  .prompt-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .prompt-box {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--gray-800);
+    line-height: 1.6;
+    position: relative;
+  }
+  .prompt-box .prompt-text { font-style: italic; }
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--accent-light);
+    background: none;
+    border: 1px solid var(--gray-200);
+    border-radius: 20px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .copy-btn:hover { background: var(--accent-pale); border-color: var(--accent-light); }
+  .copy-btn.copied { color: var(--accent); border-color: var(--accent); }
+
+  .prompt-note {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--gray-400);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .prompt-note svg { flex-shrink: 0; margin-top: 2px; }
+
+  /* AHA MOMENT */
+  .aha-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold-light);
+    border: 1px solid rgba(196,163,90,0.35);
+    color: #7a5c1a;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+
+  /* AGENT SECTION */
+  .agent-flow {
+    margin: 28px 0;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .agent-node {
+    background: var(--accent-pale2);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 12px 16px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .agent-node-icon { font-size: 20px; margin-bottom: 4px; }
+  .agent-node-label { font-size: 11px; font-weight: 500; color: var(--gray-600); }
+  .agent-arrow {
+    color: var(--gray-400);
+    padding: 0 8px;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* BONUS */
+  .bonus-section {
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 28px 28px;
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bonus-section::after {
+    content: 'BONUS';
+    position: absolute;
+    right: 24px; top: 24px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .bonus-section h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .bonus-section p {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--gray-800);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    gap: 16px;
+    margin-top: 0;
+  }
+  .footer-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 400;
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--gray-200); margin: 0; }
+
+  /* Link style */
+  a { color: var(--accent-light); }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .hero { padding: 40px 24px 36px; }
+    .section { padding: 36px 0 30px; }
+    .agent-flow { gap: 8px; }
+    .agent-arrow { padding: 0 4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="max-width: 760px; margin: 0 auto; padding: 0 16px;">
+    <div class="hero-eyebrow">Tantauco Ventures · 2026</div>
+    <h1>Tantauco<br><em>AI Bootcamp</em></h1>
+    <p class="hero-subtitle">Tu guía paso a paso para construir un asistente de tareas inteligente usando inteligencia artificial. Sin experiencia técnica necesaria.</p>
+    <div class="hero-meta">
+      <div class="hero-badge"><div class="dot"></div>Guía interactiva</div>
+      <div class="hero-badge"><div class="dot"></div>4 módulos</div>
+      <div class="hero-badge"><div class="dot"></div>~1 hora</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- SECTION I: INTRO -->
+  <div class="section">
+    <div class="section-label">
+      <div class="section-num">I</div>
+      <div class="section-tag">Introducción</div>
+    </div>
+    <h2>Bienvenida: IA & Agentes</h2>
+
+    <div class="intro-callout">
+      <p>
+        La <strong>inteligencia artificial</strong> no es magia, es una herramienta. Imagina tener un asistente que entiende el lenguaje natural —como si le escribieras un mensaje— y que puede hacer tareas por ti: organizar información, responder preguntas, crear documentos o recordarte tus pendientes.
+        <br><br>
+        Un <strong>agente de IA</strong> va un paso más allá: es un asistente que no solo responde, sino que actúa. Puede conectarse a tus aplicaciones, leer tu lista de tareas, agregar nuevas y enviarte recordatorios, todo desde un chat de Telegram. Hoy vamos a construir uno juntos, desde cero, sin escribir una sola línea de código.
+        <br><br>
+        Todo lo que necesitas es un buen prompt —una instrucción bien escrita— y las herramientas correctas. Claude (la IA que usaremos) se encarga del resto.
+      </p>
+    </div>
+
+    <p>El resultado final: <strong>una to-do list online</strong> que puedes gestionar desde Telegram, con un agente que entiende tus instrucciones en lenguaje natural.</p>
+  </div>
+
+  <!-- SECTION II: CUENTAS -->
+  <div class="section">
+    <div class="section-label">
+      <div class="section-num">II</div>
+      <div class="section-tag">Configuración</div>
+    </div>
+    <h2>Crea tus cuentas</h2>
+
+    <p>Antes de empezar a construir, necesitas crear cuentas en 5 plataformas. <strong>El orden importa</strong>: empieza por GitHub, ya que las otras se conectan fácilmente con él.</p>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progreso</span>
+        <span id="progress-text">0 de 5 completadas</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div>
+    </div>
+
+    <div class="accounts-grid">
+
+      <div class="account-card" onclick="toggleCheck(this, 'github')">
+        <div class="account-checkbox">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="account-info">
+          <div class="account-name">GitHub <span class="account-order">① Primero</span></div>
+          <div class="account-desc">Guarda y versiona tu código en la nube. Base de todo.</div>
+          <a href="https://github.com/signup" target="_blank" class="account-link" onclick="e=>e.stopPropagation()">→ Crear cuenta</a>
+        </div>
+      </div>
+
+      <div class="account-card" onclick="toggleCheck(this, 'claude')">
+        <div class="account-checkbox">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="account-info">
+          <div class="account-name">Claude (Anthropic)</div>
+          <div class="account-desc">La IA que usaremos para construir todo con prompts.</div>
+          <a href="https://claude.ai/signup" target="_blank" class="account-link">→ Crear cuenta</a>
+        </div>
+      </div>
+
+      <div class="account-card" onclick="toggleCheck(this, 'supabase')">
+        <div class="account-checkbox">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="account-info">
+          <div class="account-name">Supabase</div>
+          <div class="account-desc">Base de datos donde se guardan tus tareas. Gratis.</div>
+          <a href="https://supabase.com/dashboard/sign-up" target="_blank" class="account-link">→ Crear cuenta</a>
+        </div>
+      </div>
+
+      <div class="account-card" onclick="toggleCheck(this, 'vercel')">
+        <div class="account-checkbox">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="account-info">
+          <div class="account-name">Vercel</div>
+          <div class="account-desc">Publica tu to-do list en internet en segundos.</div>
+          <a href="https://vercel.com/signup" target="_blank" class="account-link">→ Crear cuenta</a>
+        </div>
+      </div>
+
+      <div class="account-card" onclick="toggleCheck(this, 'railway')">
+        <div class="account-checkbox">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="account-info">
+          <div class="account-name">Railway</div>
+          <div class="account-desc">Ejecuta el bot de Telegram en la nube 24/7.</div>
+          <a href="https://railway.app/login" target="_blank" class="account-link">→ Crear cuenta</a>
+        </div>
+      </div>
+
+      <div class="account-card" onclick="toggleCheck(this, 'telegram')">
+        <div class="account-checkbox">
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="account-info">
+          <div class="account-name">Telegram</div>
+          <div class="account-desc">La app desde donde hablarás con tu agente de IA.</div>
+          <a href="https://telegram.org/" target="_blank" class="account-link">→ Descargar app</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-icon">💡</div>
+      <div><strong>Tip:</strong> En Supabase y Vercel selecciona "Continuar con GitHub" para vincular las cuentas automáticamente y ahorrar tiempo.</div>
+    </div>
+  </div>
+
+  <!-- SECTION III: TO-DO LIST PROMPTS -->
+  <div class="section">
+    <div class="section-label">
+      <div class="section-num">III</div>
+      <div class="section-tag">Construcción · To-Do List</div>
+    </div>
+    <h2>Construye tu To-Do List</h2>
+
+    <p>Abre <a href="https://claude.ai" target="_blank">claude.ai</a> y copia estos prompts <strong>en orden</strong>. Cada uno agrega una capa sobre lo anterior. Observa cómo con instrucciones simples en español construyes una aplicación web completa.</p>
+
+    <div class="prompts-list">
+
+      <div class="prompt-item">
+        <div class="prompt-step">1</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt inicial · Crea la app</div>
+          <div class="prompt-box">
+            <div class="prompt-text">Quiero crear un to-do list usando Vercel, GitHub y Supabase donde pueda listar todas mis tareas de manera sencilla, editarlas y clasificarlas entre "por hacer", "en progreso" y "hecho".</div>
+            <button class="copy-btn" onclick="copyPrompt(this, 'Quiero crear un to-do list usando Vercel, GitHub y Supabase donde pueda listar todas mis tareas de manera sencilla, editarlas y clasificarlas entre \"por hacer\", \"en progreso\" y \"hecho\".')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Claude te generará el código completo y las instrucciones para publicarlo en Vercel y conectarlo a Supabase.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">2</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt de mejora · Agrega prioridades</div>
+          <div class="prompt-box">
+            <div class="prompt-text">Por favor agregar un mecanismo de priorización con una escala de 1 a 10, e ir mostrándome arriba las tareas más importantes que aún no están terminadas.</div>
+            <button class="copy-btn" onclick="copyPrompt(this, 'Por favor agregar un mecanismo de priorización con una escala de 1 a 10, e ir mostrándome arriba las tareas más importantes que aún no están terminadas.')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Úsalo en el mismo chat. Claude recuerda todo el contexto anterior y modifica la app existente.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">3</div>
+        <div class="prompt-body">
+          <div class="aha-badge">✦ Momento aha</div>
+          <div class="prompt-label">Prompt de diseño · Cambia el look & feel</div>
+          <div class="prompt-box">
+            <div class="prompt-text">Por favor usemos una estética más minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una interfaz muy sencilla e intuitiva.</div>
+            <button class="copy-btn" onclick="copyPrompt(this, 'Por favor usemos una estética más minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una interfaz muy sencilla e intuitiva.')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Observa cómo un solo prompt transforma completamente el aspecto visual de la app. Este es el poder del diseño con IA.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION IV: AGENTE TELEGRAM -->
+  <div class="section">
+    <div class="section-label">
+      <div class="section-num">IV</div>
+      <div class="section-tag">Agente · Telegram</div>
+    </div>
+    <h2>Crea tu Agente de Telegram</h2>
+
+    <p>Una vez que tu to-do list está publicada, es hora de conectarle un agente de IA. Desde Telegram podrás leer, agregar, editar y eliminar tareas con mensajes de texto normal.</p>
+
+    <div class="agent-flow">
+      <div class="agent-node"><div class="agent-node-icon">💬</div><div class="agent-node-label">Telegram</div></div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-node"><div class="agent-node-icon">🤖</div><div class="agent-node-label">Agente IA</div></div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-node"><div class="agent-node-icon">🗄️</div><div class="agent-node-label">Supabase</div></div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-node"><div class="agent-node-icon">✅</div><div class="agent-node-label">To-Do List</div></div>
+    </div>
+
+    <div class="prompts-list">
+
+      <div class="prompt-item">
+        <div class="prompt-step">1</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt del agente · En un chat nuevo de Claude</div>
+          <div class="prompt-box">
+            <div class="prompt-text">Quiero crear un agente usando Telegram que pueda acceder a mi to-do list, leerla y editarla. El agente debe reportarme mis tareas pendientes, así como recibir instrucciones en lenguaje natural para: crear una nueva tarea, modificar una tarea existente y eliminar una tarea. El to-do list usa Supabase como base de datos. Por favor dame las instrucciones paso a paso para construirlo y desplegarlo en Railway.</div>
+            <button class="copy-btn" onclick="copyPrompt(this, 'Quiero crear un agente usando Telegram que pueda acceder a mi to-do list, leerla y editarla. El agente debe reportarme mis tareas pendientes, así como recibir instrucciones en lenguaje natural para: crear una nueva tarea, modificar una tarea existente y eliminar una tarea. El to-do list usa Supabase como base de datos. Por favor dame las instrucciones paso a paso para construirlo y desplegarlo en Railway.')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Inicia un chat nuevo en Claude para este módulo. Ten a mano las credenciales de Supabase (URL y API key) que usaste antes.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tip-box" style="margin-top: 24px;">
+      <div class="tip-icon">📱</div>
+      <div>Antes de este paso, crea tu bot en Telegram usando <strong>@BotFather</strong>: ábrelo en Telegram, escribe <code>/newbot</code>, elige un nombre y guarda el token que te entrega. Lo necesitarás para el agente.</div>
+    </div>
+  </div>
+
+  <!-- BONUS -->
+  <div class="section" style="border-bottom: none; padding-bottom: 0;">
+    <div class="section-label">
+      <div class="section-num" style="background: var(--gold);">★</div>
+      <div class="section-tag">Módulo extra</div>
+    </div>
+    <h2>Bonus: Claude for Excel</h2>
+    <div class="bonus-section">
+      <h3>Claude directamente en tus hojas de cálculo</h3>
+      <p>Si llegamos a tiempo, exploraremos cómo usar Claude dentro de Excel para analizar datos, generar fórmulas complejas y crear reportes automáticos con lenguaje natural. Trabajaremos sobre un archivo Excel separado que se compartirá durante la sesión.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="margin-top: 56px;">
+  <div class="footer">
+    <div>
+      <div class="footer-brand">Tantauco <span>Ventures</span></div>
+      <div class="footer-note" style="margin-top: 4px;">AI Bootcamp · Santiago, Chile</div>
+    </div>
+    <div class="footer-note" style="text-align: right;">
+      <div style="color: rgba(255,255,255,0.5); font-size: 12px;">Preguntas: <a href="https://www.tantauco.vc" style="color: var(--gold); text-decoration: none;">tantauco.vc</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const checks = {};
+  const total = 5;
+
+  function toggleCheck(card, id) {
+    checks[id] = !checks[id];
+    if (checks[id]) {
+      card.classList.add('checked');
+    } else {
+      card.classList.remove('checked');
+    }
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const done = Object.values(checks).filter(Boolean).length;
+    const pct = Math.round((done / total) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = done + ' de ' + total + ' completadas';
+  }
+
+  function copyPrompt(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ¡Copiado!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg> Copiar prompt';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
