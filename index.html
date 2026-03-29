@@ -6,7 +6,7 @@
 <title>Tantauco AI Bootcamp</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root 
+  :root {
     --black: #0a0a0a;
     --white: #fafaf8;
     --accent: #1a3a2a;
@@ -34,7 +34,6 @@
     font-size: 15px;
   }
 
-  /* HERO */
   .hero {
     background: var(--accent);
     color: var(--white);
@@ -74,10 +73,7 @@
     margin-bottom: 20px;
     max-width: 600px;
   }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
   .hero-subtitle {
     font-size: 16px;
     color: rgba(255,255,255,0.7);
@@ -104,32 +100,14 @@
     color: rgba(255,255,255,0.8);
     letter-spacing: 0.02em;
   }
-  .hero-badge .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
 
-  /* CONTAINER */
-  .container {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
-  /* SECTIONS */
-  .section {
-    padding: 48px 0 40px;
-    border-bottom: 1px solid var(--gray-200);
-  }
+  .section { padding: 48px 0 40px; border-bottom: 1px solid var(--gray-200); }
   .section:last-child { border-bottom: none; }
 
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
+  .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
   .section-num {
     width: 26px; height: 26px;
     border-radius: 50%;
@@ -142,33 +120,11 @@
     justify-content: center;
     flex-shrink: 0;
   }
-  .section-tag {
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    font-weight: 500;
-  }
-  .section h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--gray-800);
-    margin-bottom: 16px;
-    line-height: 1.25;
-  }
-  .section p {
-    color: var(--gray-600);
-    margin-bottom: 14px;
-    line-height: 1.7;
-    font-size: 15px;
-  }
-  .section p strong {
-    color: var(--gray-800);
-    font-weight: 500;
-  }
+  .section-tag { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-400); font-weight: 500; }
+  .section h2 { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; color: var(--gray-800); margin-bottom: 16px; line-height: 1.25; }
+  .section p { color: var(--gray-600); margin-bottom: 14px; line-height: 1.7; font-size: 15px; }
+  .section p strong { color: var(--gray-800); font-weight: 500; }
 
-  /* INTRO CALLOUT */
   .intro-callout {
     background: var(--accent-pale2);
     border-left: 3px solid var(--accent-light);
@@ -176,20 +132,9 @@
     padding: 20px 24px;
     margin: 24px 0;
   }
-  .intro-callout p {
-    color: var(--gray-800);
-    font-size: 15px;
-    margin: 0;
-    line-height: 1.7;
-  }
+  .intro-callout p { color: var(--gray-800); font-size: 15px; margin: 0; line-height: 1.7; }
 
-  /* ACCOUNTS CHECKLIST */
-  .accounts-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 24px;
-  }
+  .accounts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
   @media (max-width: 560px) { .accounts-grid { grid-template-columns: 1fr; } }
 
   .account-card {
@@ -219,43 +164,15 @@
     transition: all 0.15s;
     background: white;
   }
-  .account-card.checked .account-checkbox {
-    background: var(--accent);
-    border-color: var(--accent);
-  }
+  .account-card.checked .account-checkbox { background: var(--accent); border-color: var(--accent); }
   .account-checkbox svg { display: none; }
   .account-card.checked .account-checkbox svg { display: block; }
 
   .account-info { flex: 1; }
-  .account-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--gray-800);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .account-order {
-    font-size: 10px;
-    background: var(--gold-light);
-    color: var(--gold);
-    padding: 2px 7px;
-    border-radius: 10px;
-    font-weight: 500;
-  }
-  .account-desc {
-    font-size: 12px;
-    color: var(--gray-400);
-    margin-top: 3px;
-  }
-  .account-link {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 12px;
-    color: var(--accent-light);
-    text-decoration: none;
-    font-weight: 500;
-  }
+  .account-name { font-size: 14px; font-weight: 500; color: var(--gray-800); display: flex; align-items: center; gap: 8px; }
+  .account-order { font-size: 10px; background: var(--gold-light); color: var(--gold); padding: 2px 7px; border-radius: 10px; font-weight: 500; }
+  .account-desc { font-size: 12px; color: var(--gray-400); margin-top: 3px; }
+  .account-link { display: inline-block; margin-top: 8px; font-size: 12px; color: var(--accent-light); text-decoration: none; font-weight: 500; }
   .account-link:hover { text-decoration: underline; }
 
   .tip-box {
@@ -272,38 +189,13 @@
   }
   .tip-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
 
-  /* PROGRESS BAR */
-  .progress-wrap {
-    margin: 16px 0 8px;
-  }
-  .progress-label {
-    font-size: 12px;
-    color: var(--gray-400);
-    margin-bottom: 6px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .progress-bar {
-    height: 5px;
-    background: var(--gray-200);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--accent-light);
-    border-radius: 10px;
-    transition: width 0.4s ease;
-  }
+  .progress-wrap { margin: 16px 0 8px; }
+  .progress-label { font-size: 12px; color: var(--gray-400); margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .progress-bar { height: 5px; background: var(--gray-200); border-radius: 10px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent-light); border-radius: 10px; transition: width 0.4s ease; }
 
-  /* PROMPTS */
   .prompts-list { margin-top: 24px; display: flex; flex-direction: column; gap: 20px; }
-
-  .prompt-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
+  .prompt-item { display: flex; gap: 16px; align-items: flex-start; }
   .prompt-step {
     width: 32px; height: 32px;
     border-radius: 50%;
@@ -319,24 +211,8 @@
     margin-top: 2px;
   }
   .prompt-body { flex: 1; }
-  .prompt-label {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    margin-bottom: 6px;
-    font-weight: 500;
-  }
-  .prompt-box {
-    background: var(--gray-100);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 14px 16px;
-    font-size: 14px;
-    color: var(--gray-800);
-    line-height: 1.6;
-    position: relative;
-  }
+  .prompt-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 6px; font-weight: 500; }
+  .prompt-box { background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 14px 16px; font-size: 14px; color: var(--gray-800); line-height: 1.6; position: relative; }
   .prompt-box .prompt-text { font-style: italic; }
   .copy-btn {
     display: inline-flex;
@@ -356,17 +232,9 @@
   .copy-btn:hover { background: var(--accent-pale); border-color: var(--accent-light); }
   .copy-btn.copied { color: var(--accent); border-color: var(--accent); }
 
-  .prompt-note {
-    margin-top: 8px;
-    font-size: 12px;
-    color: var(--gray-400);
-    display: flex;
-    align-items: flex-start;
-    gap: 6px;
-  }
+  .prompt-note { margin-top: 8px; font-size: 12px; color: var(--gray-400); display: flex; align-items: flex-start; gap: 6px; }
   .prompt-note svg { flex-shrink: 0; margin-top: 2px; }
 
-  /* AHA MOMENT */
   .aha-badge {
     display: inline-flex;
     align-items: center;
@@ -382,32 +250,12 @@
     margin-bottom: 10px;
   }
 
-  /* AGENT SECTION */
-  .agent-flow {
-    margin: 28px 0;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-  .agent-node {
-    background: var(--accent-pale2);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 12px 16px;
-    text-align: center;
-    min-width: 100px;
-  }
+  .agent-flow { margin: 28px 0; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+  .agent-node { background: var(--accent-pale2); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 12px 16px; text-align: center; min-width: 100px; }
   .agent-node-icon { font-size: 20px; margin-bottom: 4px; }
   .agent-node-label { font-size: 11px; font-weight: 500; color: var(--gray-600); }
-  .agent-arrow {
-    color: var(--gray-400);
-    padding: 0 8px;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
+  .agent-arrow { color: var(--gray-400); padding: 0 8px; font-size: 18px; flex-shrink: 0; }
 
-  /* BONUS */
   .bonus-section {
     background: var(--accent);
     color: var(--white);
@@ -417,57 +265,17 @@
     position: relative;
     overflow: hidden;
   }
-  .bonus-section::after {
-    content: 'BONUS';
-    position: absolute;
-    right: 24px; top: 24px;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    font-weight: 500;
-  }
-  .bonus-section h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 10px;
-  }
-  .bonus-section p {
-    color: rgba(255,255,255,0.65);
-    font-size: 14px;
-    margin: 0;
-  }
+  .bonus-section::after { content: 'BONUS'; position: absolute; right: 24px; top: 24px; font-size: 10px; letter-spacing: 0.2em; color: var(--gold); font-weight: 500; }
+  .bonus-section h3 { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; }
+  .bonus-section p { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0; }
 
-  /* FOOTER */
-  .footer {
-    background: var(--gray-800);
-    padding: 32px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: gap;
-    gap: 16px;
-    margin-top: 0;
-  }
-  .footer-brand {
-    font-family: 'DM Serif Display', serif;
-    font-size: 18px;
-    color: var(--white);
-    font-weight: 400;
-  }
+  .footer { background: var(--gray-800); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 0; }
+  .footer-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--white); font-weight: 400; }
   .footer-brand span { color: var(--gold); }
-  .footer-note {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-  }
+  .footer-note { font-size: 12px; color: rgba(255,255,255,0.35); }
 
-  /* DIVIDER */
-  .divider { height: 1px; background: var(--gray-200); margin: 0; }
-
-  /* Link style */
   a { color: var(--accent-light); }
 
-  /* Responsive */
   @media (max-width: 480px) {
     .hero { padding: 40px 24px 36px; }
     .section { padding: 36px 0 30px; }
@@ -478,7 +286,6 @@
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div style="max-width: 760px; margin: 0 auto; padding: 0 16px;">
     <div class="hero-eyebrow">Tantauco Ventures · 2026</div>
@@ -492,17 +299,14 @@
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="container">
 
-  <!-- SECTION I: INTRO -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">I</div>
       <div class="section-tag">Introducción</div>
     </div>
     <h2>Bienvenida: IA & Agentes</h2>
-
     <div class="intro-callout">
       <p>
         La <strong>inteligencia artificial</strong> no es magia, es una herramienta. Imagina tener un asistente que entiende el lenguaje natural —como si le escribieras un mensaje— y que puede hacer tareas por ti: organizar información, responder preguntas, crear documentos o recordarte tus pendientes.
@@ -512,11 +316,9 @@
         Todo lo que necesitas es un buen prompt —una instrucción bien escrita— y las herramientas correctas. Claude (la IA que usaremos) se encarga del resto.
       </p>
     </div>
-
     <p>El resultado final: <strong>una to-do list online</strong> que puedes gestionar desde Telegram, con un agente que entiende tus instrucciones en lenguaje natural.</p>
   </div>
 
-  <!-- SECTION II: CUENTAS -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">II</div>
@@ -524,7 +326,7 @@
     </div>
     <h2>Crea tus cuentas</h2>
 
-    <p>Antes de empezar a construir, necesitas crear cuentas en 6 plataformas. <strong>El orden importa</strong>: empieza por GitHub, ya que las otras se conectan fácilmente con él.</p>
+    <p>Antes de empezar a construir, necesitas crear cuentas en <strong>6 plataformas</strong>. <strong>El orden importa</strong>: empieza por GitHub, ya que las otras se conectan fácilmente con él.</p>
 
     <div class="progress-wrap">
       <div class="progress-label">
@@ -535,73 +337,54 @@
     </div>
 
     <div class="accounts-grid">
-
       <div class="account-card" onclick="toggleCheck(this, 'github')">
-        <div class="account-checkbox">
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="account-info">
           <div class="account-name">GitHub <span class="account-order">① Primero</span></div>
           <div class="account-desc">Guarda y versiona tu código en la nube. Base de todo.</div>
-          <a href="https://github.com/signup" target="_blank" class="account-link" onclick="e=>e.stopPropagation()">→ Crear cuenta</a>
+          <a href="https://github.com/signup" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
-
       <div class="account-card" onclick="toggleCheck(this, 'claude')">
-        <div class="account-checkbox">
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="account-info">
           <div class="account-name">Claude (Anthropic)</div>
           <div class="account-desc">La IA que usaremos para construir todo con prompts.</div>
           <a href="https://claude.ai/signup" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
-
       <div class="account-card" onclick="toggleCheck(this, 'supabase')">
-        <div class="account-checkbox">
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="account-info">
           <div class="account-name">Supabase</div>
           <div class="account-desc">Base de datos donde se guardan tus tareas. Gratis.</div>
           <a href="https://supabase.com/dashboard/sign-up" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
-
       <div class="account-card" onclick="toggleCheck(this, 'vercel')">
-        <div class="account-checkbox">
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="account-info">
           <div class="account-name">Vercel</div>
           <div class="account-desc">Publica tu to-do list en internet en segundos.</div>
           <a href="https://vercel.com/signup" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
-
       <div class="account-card" onclick="toggleCheck(this, 'railway')">
-        <div class="account-checkbox">
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="account-info">
           <div class="account-name">Railway</div>
           <div class="account-desc">Ejecuta el bot de Telegram en la nube 24/7.</div>
           <a href="https://railway.app/login" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
-
       <div class="account-card" onclick="toggleCheck(this, 'telegram')">
-        <div class="account-checkbox">
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="account-info">
           <div class="account-name">Telegram</div>
           <div class="account-desc">La app desde donde hablarás con tu agente de IA.</div>
           <a href="https://telegram.org/" target="_blank" class="account-link">→ Descargar app</a>
         </div>
       </div>
-
     </div>
 
     <div class="tip-box">
@@ -610,18 +393,15 @@
     </div>
   </div>
 
-  <!-- SECTION III: TO-DO LIST PROMPTS -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">III</div>
       <div class="section-tag">Construcción · To-Do List</div>
     </div>
     <h2>Construye tu To-Do List</h2>
-
     <p>Abre <a href="https://claude.ai" target="_blank">claude.ai</a> y copia estos prompts <strong>en orden</strong>. Cada uno agrega una capa sobre lo anterior. Observa cómo con instrucciones simples en español construyes una aplicación web completa.</p>
 
     <div class="prompts-list">
-
       <div class="prompt-item">
         <div class="prompt-step">1</div>
         <div class="prompt-body">
@@ -676,18 +456,15 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- SECTION IV: AGENTE TELEGRAM -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">IV</div>
       <div class="section-tag">Agente · Telegram</div>
     </div>
     <h2>Crea tu Agente de Telegram</h2>
-
     <p>Una vez que tu to-do list está publicada, es hora de conectarle un agente de IA. Desde Telegram podrás leer, agregar, editar y eliminar tareas con mensajes de texto normal.</p>
 
     <div class="agent-flow">
@@ -701,7 +478,6 @@
     </div>
 
     <div class="prompts-list">
-
       <div class="prompt-item">
         <div class="prompt-step">1</div>
         <div class="prompt-body">
@@ -719,7 +495,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="tip-box" style="margin-top: 24px;">
@@ -728,7 +503,6 @@
     </div>
   </div>
 
-  <!-- BONUS -->
   <div class="section" style="border-bottom: none; padding-bottom: 0;">
     <div class="section-label">
       <div class="section-num" style="background: var(--gold);">★</div>
@@ -743,7 +517,6 @@
 
 </div>
 
-<!-- FOOTER -->
 <div style="margin-top: 56px;">
   <div class="footer">
     <div>
@@ -774,7 +547,7 @@
     const done = Object.values(checks).filter(Boolean).length;
     const pct = Math.round((done / total) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
-    document.getElementById('progress-text').textContent = done + ' de ' + total + ' completadas';
+    document.getElementById('progress-text').textContent = done + ' de 6 completadas';
   }
 
   function copyPrompt(btn, text) {
