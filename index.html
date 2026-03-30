@@ -326,12 +326,12 @@
     </div>
     <h2>Crea tus cuentas</h2>
 
-    <p>Antes de empezar a construir, necesitas crear cuentas en <strong>6 plataformas</strong>. <strong>El orden importa</strong>: empieza por GitHub, ya que las otras se conectan fácilmente con él.</p>
+    <p>Antes de empezar a construir, necesitas crear cuentas en <strong>5 plataformas</strong>. <strong>El orden importa</strong>: empieza por GitHub, ya que las otras se conectan fácilmente con él.</p>
 
     <div class="progress-wrap">
       <div class="progress-label">
         <span>Progreso</span>
-        <span id="progress-text">0 de 6 completadas</span>
+        <span id="progress-text">0 de 5 completadas</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div>
     </div>
@@ -351,14 +351,6 @@
           <div class="account-name">Claude (Anthropic)</div>
           <div class="account-desc">La IA que usaremos para construir todo con prompts.</div>
           <a href="https://claude.ai/signup" target="_blank" class="account-link">→ Crear cuenta</a>
-        </div>
-      </div>
-      <div class="account-card" onclick="toggleCheck(this, 'supabase')">
-        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="account-info">
-          <div class="account-name">Supabase</div>
-          <div class="account-desc">Base de datos donde se guardan tus tareas. Gratis.</div>
-          <a href="https://supabase.com/dashboard/sign-up" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
       <div class="account-card" onclick="toggleCheck(this, 'vercel')">
@@ -389,7 +381,7 @@
 
     <div class="tip-box">
       <div class="tip-icon">💡</div>
-      <div><strong>Tip:</strong> En Supabase y Vercel selecciona "Continuar con GitHub" para vincular las cuentas automáticamente y ahorrar tiempo.</div>
+      <div><strong>Tip:</strong> En Vercel selecciona "Continuar con GitHub" para vincular las cuentas automáticamente y ahorrar tiempo.</div>
     </div>
   </div>
 
@@ -407,15 +399,15 @@
         <div class="prompt-body">
           <div class="prompt-label">Prompt inicial · Crea la app</div>
           <div class="prompt-box">
-            <div class="prompt-text">Quiero crear un to-do list usando Vercel, GitHub y Supabase donde pueda listar todas mis tareas de manera sencilla, editarlas y clasificarlas entre "por hacer", "en progreso" y "hecho".</div>
-            <button class="copy-btn" onclick="copyPrompt(this, 'Quiero crear un to-do list usando Vercel, GitHub y Supabase donde pueda listar todas mis tareas de manera sencilla, editarlas y clasificarlas entre \"por hacer\", \"en progreso\" y \"hecho\".')">
+            <div class="prompt-text" id="prompt-text-1">Quiero crear un to-do list usando Vercel y GitHub donde pueda listar todas mis tareas de manera sencilla, editarlas y clasificarlas entre "por hacer", "en progreso" y "hecho". Quiero que vayamos paso a paso, 1 a la vez. Quiero que partas mostrándomе un diagrama de la arquitectura que haremos entre las plataformas.</div>
+            <button class="copy-btn" id="copy-btn-1" onclick="copyPromptById('copy-btn-1', 'prompt-text-1')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
             </button>
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Claude te generará el código completo y las instrucciones para publicarlo en Vercel y conectarlo a Supabase.
+            Claude te mostrará primero un diagrama de arquitectura y luego irá guiándote paso a paso para publicarlo en Vercel y conectarlo a GitHub.
           </div>
         </div>
       </div>
@@ -425,8 +417,8 @@
         <div class="prompt-body">
           <div class="prompt-label">Prompt de mejora · Agrega prioridades</div>
           <div class="prompt-box">
-            <div class="prompt-text">Por favor agregar un mecanismo de priorización con una escala de 1 a 10, e ir mostrándome arriba las tareas más importantes que aún no están terminadas.</div>
-            <button class="copy-btn" onclick="copyPrompt(this, 'Por favor agregar un mecanismo de priorización con una escala de 1 a 10, e ir mostrándome arriba las tareas más importantes que aún no están terminadas.')">
+            <div class="prompt-text" id="prompt-text-2">Por favor agregar un mecanismo de priorización con una escala de 1 a 10, e ir mostrándome arriba las tareas más importantes que aún no están terminadas.</div>
+            <button class="copy-btn" id="copy-btn-2" onclick="copyPromptById('copy-btn-2', 'prompt-text-2')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
             </button>
@@ -444,8 +436,8 @@
           <div class="aha-badge">✦ Momento aha</div>
           <div class="prompt-label">Prompt de diseño · Cambia el look & feel</div>
           <div class="prompt-box">
-            <div class="prompt-text">Por favor usemos una estética más minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una interfaz muy sencilla e intuitiva.</div>
-            <button class="copy-btn" onclick="copyPrompt(this, 'Por favor usemos una estética más minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una interfaz muy sencilla e intuitiva.')">
+            <div class="prompt-text" id="prompt-text-3">Por favor usemos una estética más minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una interfaz muy sencilla e intuitiva.</div>
+            <button class="copy-btn" id="copy-btn-3" onclick="copyPromptById('copy-btn-3', 'prompt-text-3')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
             </button>
@@ -472,7 +464,7 @@
       <div class="agent-arrow">→</div>
       <div class="agent-node"><div class="agent-node-icon">🤖</div><div class="agent-node-label">Agente IA</div></div>
       <div class="agent-arrow">→</div>
-      <div class="agent-node"><div class="agent-node-icon">🗄️</div><div class="agent-node-label">Supabase</div></div>
+      <div class="agent-node"><div class="agent-node-icon">🌐</div><div class="agent-node-label">Vercel</div></div>
       <div class="agent-arrow">→</div>
       <div class="agent-node"><div class="agent-node-icon">✅</div><div class="agent-node-label">To-Do List</div></div>
     </div>
@@ -483,15 +475,15 @@
         <div class="prompt-body">
           <div class="prompt-label">Prompt del agente · En un chat nuevo de Claude</div>
           <div class="prompt-box">
-            <div class="prompt-text">Quiero crear un agente usando Telegram que pueda acceder a mi to-do list, leerla y editarla. El agente debe reportarme mis tareas pendientes, así como recibir instrucciones en lenguaje natural para: crear una nueva tarea, modificar una tarea existente y eliminar una tarea. El to-do list usa Supabase como base de datos. Por favor dame las instrucciones paso a paso para construirlo y desplegarlo en Railway.</div>
-            <button class="copy-btn" onclick="copyPrompt(this, 'Quiero crear un agente usando Telegram que pueda acceder a mi to-do list, leerla y editarla. El agente debe reportarme mis tareas pendientes, así como recibir instrucciones en lenguaje natural para: crear una nueva tarea, modificar una tarea existente y eliminar una tarea. El to-do list usa Supabase como base de datos. Por favor dame las instrucciones paso a paso para construirlo y desplegarlo en Railway.')">
+            <div class="prompt-text" id="prompt-text-4">Quiero crear un agente usando Telegram que pueda acceder a mi to-do list, leerla y editarla. El agente debe reportarme mis tareas pendientes, así como recibir instrucciones en lenguaje natural para: crear una nueva tarea, modificar una tarea existente y eliminar una tarea. El to-do list está publicado en Vercel con GitHub. Por favor dame las instrucciones paso a paso para construirlo y desplegarlo en Railway.</div>
+            <button class="copy-btn" id="copy-btn-4" onclick="copyPromptById('copy-btn-4', 'prompt-text-4')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
             </button>
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Inicia un chat nuevo en Claude para este módulo. Ten a mano las credenciales de Supabase (URL y API key) que usaste antes.
+            Inicia un chat nuevo en Claude para este módulo. Ten a mano la URL de tu to-do list publicada en Vercel.
           </div>
         </div>
       </div>
@@ -531,7 +523,7 @@
 
 <script>
   const checks = {};
-  const total = 6;
+  const total = 5;
 
   function toggleCheck(card, id) {
     checks[id] = !checks[id];
@@ -547,11 +539,29 @@
     const done = Object.values(checks).filter(Boolean).length;
     const pct = Math.round((done / total) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
-    document.getElementById('progress-text').textContent = done + ' de 6 completadas';
+    document.getElementById('progress-text').textContent = done + ' de 5 completadas';
   }
 
-  function copyPrompt(btn, text) {
+  function copyPromptById(btnId, textId) {
+    const text = document.getElementById(textId).innerText;
+    const btn = document.getElementById(btnId);
     navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ¡Copiado!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg> Copiar prompt';
+      }, 2000);
+    }).catch(() => {
+      // Fallback for browsers that block clipboard
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
       btn.classList.add('copied');
       btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ¡Copiado!';
       setTimeout(() => {
