@@ -169,7 +169,7 @@
   .account-card.checked .account-checkbox svg { display: block; }
 
   .account-info { flex: 1; }
-  .account-name { font-size: 14px; font-weight: 500; color: var(--gray-800); display: flex; align-items: center; gap: 8px; }
+  .account-name { font-size: 14px; font-weight: 500; color: var(--gray-800); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .account-order { font-size: 10px; background: var(--gold-light); color: var(--gold); padding: 2px 7px; border-radius: 10px; font-weight: 500; }
   .account-desc { font-size: 12px; color: var(--gray-400); margin-top: 3px; }
   .account-link { display: inline-block; margin-top: 8px; font-size: 12px; color: var(--accent-light); text-decoration: none; font-weight: 500; }
@@ -180,7 +180,7 @@
     border: 1px solid rgba(196,163,90,0.3);
     border-radius: var(--radius-lg);
     padding: 14px 18px;
-    margin-top: 20px;
+    margin-top: 16px;
     font-size: 13px;
     color: #7a5c1a;
     display: flex;
@@ -250,7 +250,7 @@
     margin-bottom: 10px;
   }
 
-  .agent-flow { margin: 28px 0; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+  .agent-flow { margin: 28px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
   .agent-node { background: var(--accent-pale2); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 12px 16px; text-align: center; min-width: 100px; }
   .agent-node-icon { font-size: 20px; margin-bottom: 4px; }
   .agent-node-label { font-size: 11px; font-weight: 500; color: var(--gray-600); }
@@ -269,7 +269,7 @@
   .bonus-section h3 { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 10px; }
   .bonus-section p { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0; }
 
-  .footer { background: var(--gray-800); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 0; }
+  .footer { background: var(--gray-800); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
   .footer-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--white); font-weight: 400; }
   .footer-brand span { color: var(--gold); }
   .footer-note { font-size: 12px; color: rgba(255,255,255,0.35); }
@@ -279,7 +279,6 @@
   @media (max-width: 480px) {
     .hero { padding: 40px 24px 36px; }
     .section { padding: 36px 0 30px; }
-    .agent-flow { gap: 8px; }
     .agent-arrow { padding: 0 4px; }
   }
 </style>
@@ -293,7 +292,7 @@
     <p class="hero-subtitle">Tu guía paso a paso para construir un asistente de tareas inteligente usando inteligencia artificial. Sin experiencia técnica necesaria.</p>
     <div class="hero-meta">
       <div class="hero-badge"><div class="dot"></div>Guía interactiva</div>
-      <div class="hero-badge"><div class="dot"></div>4 módulos</div>
+      <div class="hero-badge"><div class="dot"></div>5 módulos</div>
       <div class="hero-badge"><div class="dot"></div>~1 hora</div>
     </div>
   </div>
@@ -301,6 +300,7 @@
 
 <div class="container">
 
+  <!-- I. INTRO -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">I</div>
@@ -319,6 +319,7 @@
     <p>El resultado final: <strong>una to-do list online</strong> que puedes gestionar desde Telegram, con un agente que entiende tus instrucciones en lenguaje natural.</p>
   </div>
 
+  <!-- II. PLATAFORMAS -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">II</div>
@@ -326,12 +327,12 @@
     </div>
     <h2>Crea tus cuentas</h2>
 
-    <p>Antes de empezar a construir, necesitas crear cuentas en <strong>5 plataformas</strong>. <strong>El orden importa</strong>: empieza por GitHub, ya que las otras se conectan fácilmente con él.</p>
+    <p>Antes de empezar a construir, necesitas crear cuentas en <strong>4 plataformas</strong>. <strong>El orden importa</strong>: empieza por GitHub, ya que las otras se conectan fácilmente con él.</p>
 
     <div class="progress-wrap">
       <div class="progress-label">
         <span>Progreso</span>
-        <span id="progress-text">0 de 5 completadas</span>
+        <span id="progress-text">0 de 4 completadas</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div>
     </div>
@@ -341,7 +342,7 @@
         <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="account-info">
           <div class="account-name">GitHub <span class="account-order">① Primero</span></div>
-          <div class="account-desc">Guarda y versiona tu código en la nube. Base de todo.</div>
+          <div class="account-desc">Guarda tu código en la nube. Base de todo.</div>
           <a href="https://github.com/signup" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
@@ -369,37 +370,38 @@
           <a href="https://railway.app/login" target="_blank" class="account-link">→ Crear cuenta</a>
         </div>
       </div>
-      <div class="account-card" onclick="toggleCheck(this, 'telegram')">
-        <div class="account-checkbox"><svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="account-info">
-          <div class="account-name">Telegram</div>
-          <div class="account-desc">La app desde donde hablarás con tu agente de IA.</div>
-          <a href="https://telegram.org/" target="_blank" class="account-link">→ Descargar app</a>
-        </div>
-      </div>
     </div>
 
     <div class="tip-box">
       <div class="tip-icon">💡</div>
-      <div><strong>Tip:</strong> En Vercel selecciona "Continuar con GitHub" para vincular las cuentas automáticamente y ahorrar tiempo.</div>
+      <div><strong>Tip:</strong> En Vercel y Railway selecciona "Continuar con GitHub" para vincular las cuentas automáticamente y ahorrar tiempo.</div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-icon">📱</div>
+      <div>
+        <strong>Crea tu bot de Telegram ahora.</strong> Abre Telegram, busca <strong>@BotFather</strong> y escribe <code>/newbot</code>. Elige un nombre, sigue las instrucciones y guarda el <strong>token</strong> que te entrega — lo necesitarás en el Módulo IV.
+      </div>
     </div>
   </div>
 
+  <!-- III. TO-DO LIST -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">III</div>
       <div class="section-tag">Construcción · To-Do List</div>
     </div>
     <h2>Construye tu To-Do List</h2>
-    <p>Abre <a href="https://claude.ai" target="_blank">claude.ai</a> y copia estos prompts <strong>en orden</strong>. Cada uno agrega una capa sobre lo anterior. Observa cómo con instrucciones simples en español construyes una aplicación web completa.</p>
+    <p>Abre <a href="https://claude.ai" target="_blank">claude.ai</a> y copia estos prompts <strong>en orden</strong>, todos en el mismo chat. Cada uno agrega una capa sobre lo anterior.</p>
 
     <div class="prompts-list">
+
       <div class="prompt-item">
         <div class="prompt-step">1</div>
         <div class="prompt-body">
           <div class="prompt-label">Prompt inicial · Crea la app</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-1">Quiero crear un to-do list usando Vercel y GitHub donde pueda listar todas mis tareas de manera sencilla, editarlas y clasificarlas entre "por hacer", "en progreso" y "hecho". Además, quiero conectarle un agente de IA que viva en Railway y que pueda controlar el to-do list desde Telegram con mensajes en lenguaje natural. Quiero que vayamos paso a paso, 1 a la vez. Quiero que partas mostrándomе un diagrama de la arquitectura completa entre todas las plataformas: GitHub, Vercel, Railway y Telegram.</div>
+            <div class="prompt-text" id="prompt-text-1">Quiero crear un to-do list que viva en una sola página web. Las tareas deben poder clasificarse entre "por hacer", "en progreso" y "hecho", y los datos deben guardarse en el navegador para que no se pierdan al cerrar la página. Además, quiero conectarle más adelante un agente de Telegram que viva en Railway. Quiero que vayamos paso a paso, 1 a la vez. Soy un usuario no programador, así que todas las instrucciones deben usar interfaces visuales — sin terminal ni línea de comandos. Empieza mostrándomе un diagrama simple de la arquitectura completa: GitHub, Vercel, Railway y Telegram.</div>
             <button class="copy-btn" id="copy-btn-1" onclick="copyPromptById('copy-btn-1', 'prompt-text-1')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -407,7 +409,7 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Claude mostrará primero el mapa completo de la arquitectura —GitHub, Vercel, Railway y Telegram— para que entiendas el sistema entero antes de construirlo pieza por pieza.
+            Claude mostrará primero el mapa completo del sistema y luego te guiará paso a paso para crear y publicar la app.
           </div>
         </div>
       </div>
@@ -417,7 +419,7 @@
         <div class="prompt-body">
           <div class="prompt-label">Prompt de mejora · Agrega prioridades</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-2">Por favor agregar un mecanismo de priorización con una escala de 1 a 10, e ir mostrándome arriba las tareas más importantes que aún no están terminadas.</div>
+            <div class="prompt-text" id="prompt-text-2">Agrega un sistema de prioridad del 1 al 10 a cada tarea. Las tareas más importantes que aún no estén completadas deben aparecer primero en la lista.</div>
             <button class="copy-btn" id="copy-btn-2" onclick="copyPromptById('copy-btn-2', 'prompt-text-2')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -436,7 +438,7 @@
           <div class="aha-badge">✦ Momento aha</div>
           <div class="prompt-label">Prompt de diseño · Cambia el look & feel</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-3">Por favor usemos una estética más minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una interfaz muy sencilla e intuitiva.</div>
+            <div class="prompt-text" id="prompt-text-3">Rediseña la interfaz con una estética minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una experiencia muy simple e intuitiva.</div>
             <button class="copy-btn" id="copy-btn-3" onclick="copyPromptById('copy-btn-3', 'prompt-text-3')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -448,34 +450,37 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
+  <!-- IV. AGENTE TELEGRAM -->
   <div class="section">
     <div class="section-label">
       <div class="section-num">IV</div>
       <div class="section-tag">Agente · Telegram</div>
     </div>
-    <h2>Crea tu Agente de Telegram</h2>
-    <p>Una vez que tu to-do list está publicada, es hora de conectarle un agente de IA. Desde Telegram podrás leer, agregar, editar y eliminar tareas con mensajes de texto normal.</p>
+    <h2>Conecta tu Agente de Telegram</h2>
+    <p>Tu to-do list ya está publicada. Ahora le conectamos un agente de IA: desde Telegram podrás agregar, editar y eliminar tareas con mensajes en lenguaje natural. <strong>Abre un chat nuevo en Claude</strong> para este módulo.</p>
 
     <div class="agent-flow">
       <div class="agent-node"><div class="agent-node-icon">💬</div><div class="agent-node-label">Telegram</div></div>
       <div class="agent-arrow">→</div>
       <div class="agent-node"><div class="agent-node-icon">🤖</div><div class="agent-node-label">Agente IA</div></div>
       <div class="agent-arrow">→</div>
-      <div class="agent-node"><div class="agent-node-icon">🌐</div><div class="agent-node-label">Vercel</div></div>
+      <div class="agent-node"><div class="agent-node-icon">🚂</div><div class="agent-node-label">Railway</div></div>
       <div class="agent-arrow">→</div>
       <div class="agent-node"><div class="agent-node-icon">✅</div><div class="agent-node-label">To-Do List</div></div>
     </div>
 
     <div class="prompts-list">
+
       <div class="prompt-item">
         <div class="prompt-step">1</div>
         <div class="prompt-body">
-          <div class="prompt-label">Prompt del agente · En un chat nuevo de Claude</div>
+          <div class="prompt-label">Prompt de arquitectura · Chat nuevo en Claude</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-4">Quiero crear un agente usando Telegram que pueda acceder a mi to-do list, leerla y editarla. El agente debe reportarme mis tareas pendientes, así como recibir instrucciones en lenguaje natural para: crear una nueva tarea, modificar una tarea existente y eliminar una tarea. El to-do list está publicado en Vercel con GitHub. Por favor dame las instrucciones paso a paso para construirlo y desplegarlo en Railway.</div>
+            <div class="prompt-text" id="prompt-text-4">Quiero crear un bot de Telegram que funcione como asistente de mi to-do list. Debe poder agregar, editar y eliminar tareas con instrucciones en lenguaje natural. El to-do list está publicado en Vercel y guarda los datos en el navegador (localStorage). El bot debe desplegarse en Railway. Soy un usuario no programador — todas las instrucciones deben usar interfaces visuales, sin terminal ni línea de comandos. Empieza mostrándomе un diagrama de cómo se conectan todas las piezas antes de escribir cualquier código.</div>
             <button class="copy-btn" id="copy-btn-4" onclick="copyPromptById('copy-btn-4', 'prompt-text-4')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -483,18 +488,51 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Inicia un chat nuevo en Claude para este módulo. Ten a mano la URL de tu to-do list publicada en Vercel.
+            Ten a mano la URL de tu to-do list en Vercel y el token de @BotFather que guardaste en el Módulo II.
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="tip-box" style="margin-top: 24px;">
-      <div class="tip-icon">📱</div>
-      <div>Antes de este paso, crea tu bot en Telegram usando <strong>@BotFather</strong>: ábrelo en Telegram, escribe <code>/newbot</code>, elige un nombre y guarda el token que te entrega. Lo necesitarás para el agente.</div>
+      <div class="prompt-item">
+        <div class="prompt-step">2</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt de construcción · Escribe el bot</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-5">Ahora crea el código del bot paso a paso. Recuerda: soy usuario no programador, así que guíame usando solo interfaces visuales — sin terminal.</div>
+            <button class="copy-btn" id="copy-btn-5" onclick="copyPromptById('copy-btn-5', 'prompt-text-5')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Claude generará los archivos del bot y te dirá exactamente qué hacer con cada uno.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">3</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt de deploy · Sube el bot a Railway</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-6">Dame las instrucciones paso a paso para subir el bot a Railway y dejarlo funcionando 24/7, usando solo la interfaz visual de Railway — sin usar la terminal.</div>
+            <button class="copy-btn" id="copy-btn-6" onclick="copyPromptById('copy-btn-6', 'prompt-text-6')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Una vez desplegado, prueba escribirle a tu bot en Telegram: "agrega comprar leche con prioridad 8".
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- V. BONUS -->
   <div class="section" style="border-bottom: none; padding-bottom: 0;">
     <div class="section-label">
       <div class="section-num" style="background: var(--gold);">★</div>
@@ -523,15 +561,11 @@
 
 <script>
   const checks = {};
-  const total = 5;
+  const total = 4;
 
   function toggleCheck(card, id) {
     checks[id] = !checks[id];
-    if (checks[id]) {
-      card.classList.add('checked');
-    } else {
-      card.classList.remove('checked');
-    }
+    card.classList.toggle('checked', checks[id]);
     updateProgress();
   }
 
@@ -539,35 +573,30 @@
     const done = Object.values(checks).filter(Boolean).length;
     const pct = Math.round((done / total) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
-    document.getElementById('progress-text').textContent = done + ' de 5 completadas';
+    document.getElementById('progress-text').textContent = done + ' de 4 completadas';
   }
 
   function copyPromptById(btnId, textId) {
     const text = document.getElementById(textId).innerText;
     const btn = document.getElementById(btnId);
-    navigator.clipboard.writeText(text).then(() => {
+    const iconCopy = '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg> Copiar prompt';
+    const iconDone = '<svg width="12" height="12" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ¡Copiado!';
+
+    const finish = () => {
       btn.classList.add('copied');
-      btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ¡Copiado!';
-      setTimeout(() => {
-        btn.classList.remove('copied');
-        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg> Copiar prompt';
-      }, 2000);
-    }).catch(() => {
-      // Fallback for browsers that block clipboard
+      btn.innerHTML = iconDone;
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = iconCopy; }, 2000);
+    };
+
+    navigator.clipboard.writeText(text).then(finish).catch(() => {
       const ta = document.createElement('textarea');
       ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
+      ta.style.cssText = 'position:fixed;opacity:0';
       document.body.appendChild(ta);
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
-      btn.classList.add('copied');
-      btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ¡Copiado!';
-      setTimeout(() => {
-        btn.classList.remove('copied');
-        btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg> Copiar prompt';
-      }, 2000);
+      finish();
     });
   }
 </script>
