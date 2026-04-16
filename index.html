@@ -376,13 +376,6 @@
       <div class="tip-icon">💡</div>
       <div><strong>Tip:</strong> En Vercel y Railway selecciona "Continuar con GitHub" para vincular las cuentas automáticamente y ahorrar tiempo.</div>
     </div>
-
-    <div class="tip-box">
-      <div class="tip-icon">📱</div>
-      <div>
-        <strong>Crea tu bot de Telegram ahora.</strong> Abre Telegram, busca <strong>@BotFather</strong> y escribe <code>/newbot</code>. Elige un nombre, sigue las instrucciones y guarda el <strong>token</strong> que te entrega — lo necesitarás en el Módulo IV.
-      </div>
-    </div>
   </div>
 
   <!-- III. TO-DO LIST -->
@@ -401,7 +394,7 @@
         <div class="prompt-body">
           <div class="prompt-label">Prompt inicial · Crea la app</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-1">Quiero crear un to-do list que viva en una sola página web. Las tareas deben poder clasificarse entre "por hacer", "en progreso" y "hecho", y los datos deben guardarse en el navegador para que no se pierdan al cerrar la página. Además, quiero conectarle más adelante un agente de Telegram que viva en Railway. Quiero que vayamos paso a paso, 1 a la vez. Soy un usuario no programador, así que todas las instrucciones deben usar interfaces visuales — sin terminal ni línea de comandos. Empieza mostrándomе un diagrama simple de la arquitectura completa: GitHub, Vercel, Railway y Telegram.</div>
+            <div class="prompt-text" id="prompt-text-1">Quiero crear una página web con una lista de tareas. Las tareas deben poder clasificarse entre "por hacer", "en progreso" y "hecho", y los datos deben guardarse en el navegador para que no se pierdan al cerrar la página. Soy un usuario no programador — todas las instrucciones deben usar interfaces visuales, sin terminal ni línea de comandos. Empieza mostrándome un diagrama simple de la arquitectura completa antes de construir nada.</div>
             <button class="copy-btn" id="copy-btn-1" onclick="copyPromptById('copy-btn-1', 'prompt-text-1')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -409,7 +402,7 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Claude mostrará primero el mapa completo del sistema y luego te guiará paso a paso para crear y publicar la app.
+            Claude mostrará primero el diagrama de arquitectura. Cuando lo apruebes, pasas al siguiente prompt.
           </div>
         </div>
       </div>
@@ -417,9 +410,11 @@
       <div class="prompt-item">
         <div class="prompt-step">2</div>
         <div class="prompt-body">
-          <div class="prompt-label">Prompt de mejora · Agrega prioridades</div>
+          <div class="prompt-label">Prompt de construcción · Genera el archivo</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-2">Agrega un sistema de prioridad del 1 al 10 a cada tarea. Las tareas más importantes que aún no estén completadas deben aparecer primero en la lista.</div>
+            <div class="prompt-text" id="prompt-text-2">Apruebo la arquitectura. Ahora construye la aplicación completa y entrégame el código en un archivo descargable listo para usar.
+
+Nota: un solo archivo index.html. Datos en localStorage.</div>
             <button class="copy-btn" id="copy-btn-2" onclick="copyPromptById('copy-btn-2', 'prompt-text-2')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -427,7 +422,7 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Úsalo en el mismo chat. Claude recuerda todo el contexto anterior y modifica la app existente.
+            Claude generará el archivo index.html completo. Descárgalo — lo usarás en los pasos siguientes.
           </div>
         </div>
       </div>
@@ -435,10 +430,11 @@
       <div class="prompt-item">
         <div class="prompt-step">3</div>
         <div class="prompt-body">
-          <div class="aha-badge">✦ Momento aha</div>
-          <div class="prompt-label">Prompt de diseño · Cambia el look & feel</div>
+          <div class="prompt-label">Prompt de deploy · Publica en GitHub y Vercel</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-3">Rediseña la interfaz con una estética minimalista estilo Google: tipografía limpia, colores suaves, mucho espacio en blanco y una experiencia muy simple e intuitiva.</div>
+            <div class="prompt-text" id="prompt-text-3">Ahora dime paso a paso cómo subir este archivo a GitHub y publicarlo en Vercel para poder abrirlo en el navegador. Explica cada paso con mucho detalle — qué botones presionar, qué escribir en cada campo y en qué orden hacer todo. Nunca he usado GitHub ni Vercel antes.
+
+Nota: repositorio GitHub llamado todo-app. Sin README ni .gitignore.</div>
             <button class="copy-btn" id="copy-btn-3" onclick="copyPromptById('copy-btn-3', 'prompt-text-3')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -446,7 +442,66 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Observa cómo un solo prompt transforma completamente el aspecto visual de la app. Este es el poder del diseño con IA.
+            Sigue las instrucciones que te dé Claude. Al final tendrás una URL pública con tu to-do list.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">4</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt de mejora · Agrega prioridades</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-3b">Quiero agregarle un sistema de prioridad del 1 al 10 a cada tarea, donde 10 es la más urgente y 1 la menos urgente. Las tareas más importantes deben aparecer primero en la lista mientras no estén completadas. Cada tarea debe mostrar visualmente su nivel de prioridad con un badge de color.</div>
+            <button class="copy-btn" id="copy-btn-3b" onclick="copyPromptById('copy-btn-3b', 'prompt-text-3b')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Úsalo en el mismo chat. Claude recuerda el contexto anterior y modifica la app existente.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">5</div>
+        <div class="prompt-body">
+          <div class="aha-badge">✦ Momento aha</div>
+          <div class="prompt-label">Prompt de diseño · Cambia el look & feel</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-3c">Rediseña la interfaz completamente con una estética inspirada en Transformers: colores metálicos, azul energón, negro y gris oscuro, tipografía industrial y geométrica, bordes angulados. Que se sienta como un panel de control de Cybertron. Las columnas mantienen sus nombres originales: "Por hacer", "En progreso" y "Hecho".
+
+Nota: los cambios son exclusivamente estéticos — no modificar funcionalidad, datos ni estructura del código.</div>
+            <button class="copy-btn" id="copy-btn-3c" onclick="copyPromptById('copy-btn-3c', 'prompt-text-3c')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Observa cómo un solo prompt transforma completamente el aspecto visual. Este es el poder del diseño con IA.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">6</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt de actualización · Sube la nueva versión</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-3d">Tengo el código actualizado y necesito reemplazarlo en GitHub para que Vercel publique la nueva versión automáticamente. Dime paso a paso cómo hacerlo editando el archivo directamente en GitHub, sin subir uno nuevo.
+
+Nota: repositorio todo-app. Editar el archivo index.html existente, no subir uno nuevo.</div>
+            <button class="copy-btn" id="copy-btn-3d" onclick="copyPromptById('copy-btn-3d', 'prompt-text-3d')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Vercel detecta el cambio en GitHub y redespliega automáticamente en ~1 minuto.
           </div>
         </div>
       </div>
@@ -461,16 +516,16 @@
       <div class="section-tag">Agente · Telegram</div>
     </div>
     <h2>Conecta tu Agente de Telegram</h2>
-    <p>Tu to-do list ya está publicada. Ahora le conectamos un agente de IA: desde Telegram podrás agregar, editar y eliminar tareas con mensajes en lenguaje natural. <strong>Abre un chat nuevo en Claude</strong> para este módulo.</p>
+    <p>Tu to-do list ya está publicada. Ahora le conectamos un agente de IA con base de datos real: desde Telegram podrás agregar, editar y eliminar tareas con mensajes en lenguaje natural. <strong>Abre un chat nuevo en Claude</strong> para este módulo.</p>
 
     <div class="agent-flow">
       <div class="agent-node"><div class="agent-node-icon">💬</div><div class="agent-node-label">Telegram</div></div>
       <div class="agent-arrow">→</div>
-      <div class="agent-node"><div class="agent-node-icon">🤖</div><div class="agent-node-label">Agente IA</div></div>
+      <div class="agent-node"><div class="agent-node-icon">🤖</div><div class="agent-node-label">Bot + API</div></div>
       <div class="agent-arrow">→</div>
       <div class="agent-node"><div class="agent-node-icon">🚂</div><div class="agent-node-label">Railway</div></div>
       <div class="agent-arrow">→</div>
-      <div class="agent-node"><div class="agent-node-icon">✅</div><div class="agent-node-label">To-Do List</div></div>
+      <div class="agent-node"><div class="agent-node-icon">🗄️</div><div class="agent-node-label">PostgreSQL</div></div>
     </div>
 
     <div class="prompts-list">
@@ -480,7 +535,9 @@
         <div class="prompt-body">
           <div class="prompt-label">Prompt de arquitectura · Chat nuevo en Claude</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-4">Quiero crear un bot de Telegram que funcione como asistente de mi to-do list. Debe poder agregar, editar y eliminar tareas con instrucciones en lenguaje natural. El to-do list está publicado en Vercel y guarda los datos en el navegador (localStorage). El bot debe desplegarse en Railway. Soy un usuario no programador — todas las instrucciones deben usar interfaces visuales, sin terminal ni línea de comandos. Empieza mostrándomе un diagrama de cómo se conectan todas las piezas antes de escribir cualquier código.</div>
+            <div class="prompt-text" id="prompt-text-4">Quiero crear un bot de Telegram que funcione como asistente de mi to-do list. Debe poder agregar, editar y eliminar tareas con instrucciones en lenguaje natural. El to-do list está publicado en Vercel y actualmente guarda los datos en localStorage. El bot debe desplegarse en Railway. Soy un usuario no programador — todas las instrucciones deben usar interfaces visuales, sin terminal ni línea de comandos. Empieza mostrándome un diagrama de cómo se conectan todas las piezas antes de escribir cualquier código.
+
+Nota: el frontend debe migrar de localStorage a una API REST en Railway. La base de datos es PostgreSQL, compartida entre la API REST y el bot.</div>
             <button class="copy-btn" id="copy-btn-4" onclick="copyPromptById('copy-btn-4', 'prompt-text-4')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -488,7 +545,7 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Ten a mano la URL de tu to-do list en Vercel y el token de @BotFather que guardaste en el Módulo II.
+            Ten a mano la URL de tu to-do list en Vercel. Claude mostrará primero el diagrama completo.
           </div>
         </div>
       </div>
@@ -496,9 +553,11 @@
       <div class="prompt-item">
         <div class="prompt-step">2</div>
         <div class="prompt-body">
-          <div class="prompt-label">Prompt de construcción · Escribe el bot</div>
+          <div class="prompt-label">Prompt de construcción · Genera el código del bot</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-5">Ahora crea el código del bot paso a paso. Recuerda: soy usuario no programador, así que guíame usando solo interfaces visuales — sin terminal.</div>
+            <div class="prompt-text" id="prompt-text-5">Apruebo la arquitectura. Entrégame el código del bot en archivos descargables. El bot debe usar Anthropic como motor de razonamiento para interpretar los mensajes del usuario en lenguaje natural y decidir qué acción ejecutar. Cuando tengas el código, dime paso a paso cómo crear un repositorio en GitHub y subir los archivos usando solo el navegador — qué botones presionar, qué nombres usar y en qué orden hacer todo.
+
+Nota: 3 archivos: requirements.txt, main.py, runtime.txt. Python 3.10 especificado en runtime.txt como "python-3.10". Librerías: python-telegram-bot==13.15, psycopg2-binary==2.9.9, flask==2.3.3, flask-cors==4.0.0, anthropic==0.40.0, httpx==0.27.2. PostgreSQL vía DATABASE_URL. CORS habilitado. Repositorio GitHub: todo-bot. Sin README ni .gitignore.</div>
             <button class="copy-btn" id="copy-btn-5" onclick="copyPromptById('copy-btn-5', 'prompt-text-5')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -506,7 +565,7 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Claude generará los archivos del bot y te dirá exactamente qué hacer con cada uno.
+            Claude generará los 3 archivos y te dirá cómo subirlos a GitHub.
           </div>
         </div>
       </div>
@@ -514,9 +573,31 @@
       <div class="prompt-item">
         <div class="prompt-step">3</div>
         <div class="prompt-body">
+          <div class="prompt-label">Prompt de Telegram · Crea el bot con @BotFather</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-5b">Dime paso a paso cómo crear mi bot en Telegram antes de subirlo a Railway. Explícame cada paso con detalle — qué aplicación abrir, qué escribir y dónde guardar el resultado, porque lo voy a necesitar en el siguiente paso.
+
+Nota: crear bot vía @BotFather en Telegram con /newbot. Guardar el token que entrega BotFather.</div>
+            <button class="copy-btn" id="copy-btn-5b" onclick="copyPromptById('copy-btn-5b', 'prompt-text-5b')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Guarda bien el token — lo necesitarás en el paso siguiente.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">4</div>
+        <div class="prompt-body">
           <div class="prompt-label">Prompt de deploy · Sube el bot a Railway</div>
           <div class="prompt-box">
-            <div class="prompt-text" id="prompt-text-6">Dame las instrucciones paso a paso para subir el bot a Railway y dejarlo funcionando 24/7, usando solo la interfaz visual de Railway — sin usar la terminal.</div>
+            <div class="prompt-text" id="prompt-text-6">Dime paso a paso cómo subir el bot a Railway y dejarlo funcionando las 24 horas. Explícame qué secciones abrir, qué botones presionar y qué escribir en cada campo — quiero poder seguir las instrucciones sin saber nada de programación.
+
+Nota: start command: python main.py. Orden: proyecto vacío → PostgreSQL → agregar las 3 variables → repositorio todo-bot. Variables: DATABASE_URL (referencia Postgres.DATABASE_URL usando el botón "Add Reference", indicar el contenido exacto que quedará en el campo), TELEGRAM_TOKEN, ANTHROPIC_API_KEY.</div>
             <button class="copy-btn" id="copy-btn-6" onclick="copyPromptById('copy-btn-6', 'prompt-text-6')">
               <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
               Copiar prompt
@@ -524,7 +605,68 @@
           </div>
           <div class="prompt-note">
             <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
-            Una vez desplegado, prueba escribirle a tu bot en Telegram: "agrega comprar leche con prioridad 8".
+            Ten listos tu TELEGRAM_TOKEN y tu ANTHROPIC_API_KEY antes de empezar este paso.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">5</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt de base de datos · Crea la tabla</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-6b">Entrégame el código para crear la tabla de la base de datos en un archivo descargable, y dime exactamente dónde y cómo ejecutarlo dentro de Railway, paso a paso, usando solo botones y menús visuales.
+
+Nota: tabla tasks, columnas id (SERIAL PRIMARY KEY), text (TEXT NOT NULL), status (TEXT NOT NULL DEFAULT 'todo'), priority (INTEGER NOT NULL DEFAULT 5), created_at (TIMESTAMPTZ NOT NULL DEFAULT NOW()). Ejecutar en Railway → plugin PostgreSQL → pestaña Data → Query.</div>
+            <button class="copy-btn" id="copy-btn-6b" onclick="copyPromptById('copy-btn-6b', 'prompt-text-6b')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Este paso inicializa la base de datos. Sin esto el bot no puede guardar tareas.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">6</div>
+        <div class="prompt-body">
+          <div class="prompt-label">Prompt de conexión · Obtén la URL de Railway</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-6c">Ahora quiero conectar mi página web con el bot que acabo de subir. Dime paso a paso cómo encontrar la dirección del bot en Railway, cómo actualizar mi página para que use esa dirección, y cómo reemplazar el archivo en GitHub para que la página se actualice automáticamente.
+
+Nota: obtener URL pública en Railway → Settings → Networking → Generate Domain. Actualizar index.html reemplazando localStorage por llamadas a la API REST. Editar index.html en repositorio todo-app en GitHub para que Vercel redespliegue automáticamente.</div>
+            <button class="copy-btn" id="copy-btn-6c" onclick="copyPromptById('copy-btn-6c', 'prompt-text-6c')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Claude te dirá la URL exacta a buscar. Guárdala — la usarás en el siguiente prompt.
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-item">
+        <div class="prompt-step">7</div>
+        <div class="prompt-body">
+          <div class="aha-badge">✦ Momento aha</div>
+          <div class="prompt-label">Prompt final · Conecta el frontend</div>
+          <div class="prompt-box">
+            <div class="prompt-text" id="prompt-text-6d">Esta es la URL de mi bot: [pegar aquí la URL obtenida en Railway]. Entrégame el archivo index.html actualizado y descargable, y dime paso a paso cómo reemplazarlo en GitHub para que Vercel publique la nueva versión automáticamente.
+
+Nota: actualizar index.html reemplazando localStorage por llamadas a la API REST apuntando a la URL indicada. Editar index.html existente en repositorio todo-app, no subir uno nuevo.</div>
+            <button class="copy-btn" id="copy-btn-6d" onclick="copyPromptById('copy-btn-6d', 'prompt-text-6d')">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2Zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6Z"/><path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2Z"/></svg>
+              Copiar prompt
+            </button>
+          </div>
+          <div class="prompt-note">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="#9e9b95"><circle cx="8" cy="8" r="7" stroke="#9e9b95" stroke-width="1.5" fill="none"/><path d="M8 7v4M8 5.5v.5" stroke="#9e9b95" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Reemplaza [pegar aquí la URL] por tu URL real de Railway antes de copiar el prompt. Luego prueba escribirle a tu bot: "agrega comprar leche con prioridad 8".
           </div>
         </div>
       </div>
